@@ -1,0 +1,9 @@
+
+defaults: &defaults
+  name: D0 CLI Template
+
+development:
+  <<: *defaults
+
+production:
+  <<: *defaults

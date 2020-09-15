@@ -2,14 +2,14 @@
 # -*- coding: utf-8 -*-
 
 
-from ._version import (
-    __version__,
-)  # Need the "." before "_version" because invoke also has a "_version.py"
-
 # Invoke magic
 from invoke import Collection, task
 
-from .tasks.libname import actions
+import clitemplate.tasks.module1.actions as module1_actions
+import clitemplate.tasks.module2.actions as module2_actions
 
-# See docs: http://docs.pyinvoke.org/en/1.3/concepts/namespaces.html
-ns = Collection.from_module(actions)
+# Adding entire module to collection, and naming it "greetings"
+ns = Collection(greetings=module1_actions)
+
+# Adding a single task to the collection
+ns.add_task(module2_actions.farewell)

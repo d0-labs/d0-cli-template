@@ -1,16 +1,18 @@
 from . import *
 
 from invoke import Program
+import toml, os
 
-from ._version import __version__
-
-
-version = __version__
+try:
+    pyproject = toml.load(f"{os.getcwd()}/pyproject.toml", _dict=dict)
+    version = pyproject["tool"]["poetry"]["version"]
+except FileNotFoundError:
+    version = None
 
 program = Program(
-    name="mycliname",
+    name="mycli",
     namespace=ns,
     version=version,
-    binary="mycliname",
-    binary_names=["mycliname"],
+    binary="mycli",
+    binary_names=["mycli"],
 )

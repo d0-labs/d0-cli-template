@@ -9,14 +9,14 @@ from clitemplate.definitions import APP_CONFIG
 
 
 @task(
-    help={"greeting": "Greeting to print"}
+    help={"goodbye": "Parting words to print"}
 )
-def test(c, greeting="Hello"):
+def farewell(ctxt, goodbye="Later, skater!"):
     """
 	This is a test action
 	"""
 
-    print(f"I'm a test action. Here's my greeting: [{greeting}]")
+    print(f"I'm test in the module2 module. Here are my parting words: [{goodbye}]")
 
 
 ## ------------------
